@@ -37,7 +37,7 @@ export async function getSignedUrls(
  */
 export async function uploadAttachment(formData: FormData): Promise<{ path: string } | { error: string }> {
   const file = formData.get('file');
-  if (!(file instanceof File)) return { error: 'Archivo invalido.' };
+  if (!(file instanceof File)) return { error: 'Archivo inválido.' };
 
   const allowed = ['image/jpeg', 'image/png', 'image/webp', 'application/pdf'];
   if (!allowed.includes(file.type)) {

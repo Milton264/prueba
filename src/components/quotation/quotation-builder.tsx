@@ -270,7 +270,7 @@ export function QuotationBuilder({
         <CardContent className="grid gap-6 lg:grid-cols-2">
           <div>
             <h3 className="mb-2 text-xs font-semibold uppercase tracking-wide text-navy-300">
-              Lo que vera el cliente
+              Lo que verá el cliente
             </h3>
             <dl className="divide-y divide-navy-100">
               <DataRow label="Costo del producto" value={formatCurrency(calc.productSubtotal)} />
@@ -371,7 +371,7 @@ export function QuotationBuilder({
         open={preview}
         onClose={() => setPreview(false)}
         title="Vista previa de la cotización"
-        description="Así la vera el cliente. Los costos internos y margenes no aparecen."
+        description="Así la verá el cliente. Los costos internos y márgenes no aparecen."
         size="lg"
       >
         <QuotationClientView
@@ -412,9 +412,9 @@ export function QuotationBuilder({
         open={confirmSend}
         onClose={() => setConfirmSend(false)}
         onConfirm={send}
-        title="Enviar la cotización al cliente?"
-        description={`Se guardara y quedará visible en el portal del cliente. El estado de la solicitud ${requestNumber} pasara a "Cotización enviada".`}
-        confirmLabel="Si, enviar"
+        title="¿Enviar la cotización al cliente?"
+        description={`Se guardará y quedará visible en el portal del cliente. El estado de la solicitud ${requestNumber} pasará a "Cotización enviada".`}
+        confirmLabel="Sí, enviar"
         loading={pending}
       >
         <dl className="divide-y divide-navy-100">

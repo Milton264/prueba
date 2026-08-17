@@ -73,7 +73,7 @@ export function StatusChanger({
           <Field
             label="Nota para el cliente"
             htmlFor="note"
-            hint="Opcional. Aparecera en la línea de tiempo que ve el cliente."
+            hint="Opcional. Aparecerá en la línea de tiempo que ve el cliente."
           >
             <Textarea id="note" name="note" rows={3} />
           </Field>

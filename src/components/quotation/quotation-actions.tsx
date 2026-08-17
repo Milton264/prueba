@@ -111,9 +111,9 @@ export function QuotationActions({
             () => setConfirmApprove(false),
           )
         }
-        title="Confirmas que deseas aprobar esta cotización?"
+        title="¿Confirmas que deseas aprobar esta cotización?"
         description={`Al aprobar la cotización ${quotationNumber} aceptas los montos, la fecha propuesta y las condiciones de pago indicadas. Nuestro equipo procederá a programar el servicio.`}
-        confirmLabel="Si, aprobar"
+        confirmLabel="Sí, aprobar"
         variant="success"
         loading={pending}
       />
@@ -123,7 +123,7 @@ export function QuotationActions({
         open={changesOpen}
         onClose={() => setChangesOpen(false)}
         title="Solicitar cambios"
-        description="Cuéntanos qué necesitas modificar y nuestro equipo preparara una nueva cotización."
+        description="Cuéntanos qué necesitas modificar y nuestro equipo preparará una nueva cotización."
         footer={
           <>
             <Button variant="secondary" onClick={() => setChangesOpen(false)} disabled={pending}>
@@ -146,7 +146,7 @@ export function QuotationActions({
           </>
         }
       >
-        <Field label="Qué necesitas modificar?" htmlFor="changes_message" required>
+        <Field label="¿Qué necesitas modificar?" htmlFor="changes_message" required>
           <Textarea
             id="changes_message"
             rows={5}

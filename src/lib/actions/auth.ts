@@ -25,7 +25,7 @@ function translateAuthError(message: string): string {
   if (m.includes('rate limit') || m.includes('too many'))
     return 'Demasiados intentos. Espera unos minutos e intenta de nuevo.';
   if (m.includes('password')) return 'La contraseña no cumple los requisitos minimos.';
-  return 'No pudimos completar la operacion. Intenta de nuevo.';
+  return 'No pudimos completar la operación. Intenta de nuevo.';
 }
 
 export async function signIn(_prev: unknown, formData: FormData): Promise<ActionResult> {
@@ -167,7 +167,7 @@ export async function signOut(): Promise<void> {
 export async function requestPasswordReset(_prev: unknown, formData: FormData): Promise<ActionResult> {
   const parsed = recoverSchema.safeParse({ email: String(formData.get('email') ?? '').trim() });
   if (!parsed.success) {
-    return { ok: false, error: 'Ingresa un correo valido.', fieldErrors: fieldErrors(parsed.error) };
+    return { ok: false, error: 'Ingresa un correo válido.', fieldErrors: fieldErrors(parsed.error) };
   }
 
   const supabase = await createClient();

@@ -32,7 +32,7 @@ export function StepReview({
       <div>
         <h2 className="text-lg font-semibold">Revisa tu solicitud</h2>
         <p className="mt-1 text-sm text-navy-500">
-          Verifica que todo este correcto antes de enviarla.
+          Verifica que todo esté correcto antes de enviarla.
         </p>
       </div>
 

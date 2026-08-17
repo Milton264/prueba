@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-const money = (msg = 'Ingresa un monto valido') =>
+const money = (msg = 'Ingresa un monto válido') =>
   z.number({ invalid_type_error: msg }).min(0, 'El monto no puede ser negativo').default(0);
 
 export const quotationSchema = z

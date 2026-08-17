@@ -17,7 +17,7 @@ export const step1Schema = z.object({
 export const step2Schema = z
   .object({
     quantity_gal: z
-      .number({ invalid_type_error: 'Ingresa una cantidad valida' })
+      .number({ invalid_type_error: 'Ingresa una cantidad válida' })
       .int('La cantidad debe ser un número entero')
       .positive('La cantidad debe ser mayor que cero')
       .max(100000, 'Para cantidades mayores comunícate con un asesor')
@@ -43,7 +43,7 @@ export const step3Schema = z.object({
   reference_point: optionalText(300),
   access_instructions: optionalText(500),
   tank_capacity_gal: z
-    .number({ invalid_type_error: 'Ingresa un número valido' })
+    .number({ invalid_type_error: 'Ingresa un número válido' })
     .int()
     .positive()
     .max(500000)
@@ -74,10 +74,10 @@ export const step4Schema = z.object({
   contact_name: z.string().min(3, 'Ingresa el nombre de quién recibe').max(120),
   contact_phone: z
     .string()
-    .min(7, 'Ingresa un teléfono valido')
+    .min(7, 'Ingresa un teléfono válido')
     .max(20)
     .regex(/^[\d\s()+-]+$/, 'El teléfono solo puede contener números y los signos + - ( )'),
-  contact_email: z.string().email('Correo electrónico invalido').optional().or(z.literal('')),
+  contact_email: z.string().email('Correo electrónico inválido').optional().or(z.literal('')),
   customer_comments: optionalText(1000),
 });
 
@@ -92,8 +92,8 @@ export const step5Schema = z.object({
 export const guestSchema = z.object({
   guest_full_name: z.string().min(3, 'Ingresa tu nombre completo').max(120),
   guest_company: optionalText(120),
-  guest_email: z.string().min(1, 'El correo es obligatorio').email('Correo electrónico invalido'),
-  guest_phone: z.string().min(7, 'Ingresa un teléfono valido').max(20),
+  guest_email: z.string().min(1, 'El correo es obligatorio').email('Correo electrónico inválido'),
+  guest_phone: z.string().min(7, 'Ingresa un teléfono válido').max(20),
 });
 
 /** Esquema completo, validado en el servidor. */

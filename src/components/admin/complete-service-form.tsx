@@ -42,7 +42,7 @@ export function CompleteServiceForm({
         open={open}
         onClose={() => setOpen(false)}
         title="Registrar servicio completado"
-        description="Estos datos quedaran visibles para el cliente."
+        description="Estos datos quedarán visibles para el cliente."
       >
         <form action={action} className="space-y-5">
           <input type="hidden" name="request_id" value={requestId} />
@@ -75,7 +75,7 @@ export function CompleteServiceForm({
           </Field>
 
           <Notice tone="info">
-            El comprobante y las fotografías se cargan desde la seccion de adjuntos de la solicitud.
+            El comprobante y las fotografías se cargan desde la sección de adjuntos de la solicitud.
           </Notice>
 
           <div className="flex flex-col-reverse gap-2 sm:flex-row sm:justify-end">

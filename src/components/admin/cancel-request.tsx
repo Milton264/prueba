@@ -30,8 +30,8 @@ export function CancelRequestButton({ requestId, requestNumber }: { requestId: s
       <Dialog
         open={open}
         onClose={() => setOpen(false)}
-        title={`Cancelar la solicitud ${requestNumber}?`}
-        description="Esta acción cambia el estado a cancelada. El cliente la vera reflejada en su portal."
+        title={`¿Cancelar la solicitud ${requestNumber}?`}
+        description="Esta acción cambia el estado a cancelada. El cliente la verá reflejada en su portal."
       >
         <form action={action} className="space-y-5">
           <input type="hidden" name="request_id" value={requestId} />

@@ -243,13 +243,13 @@ async function respond(
 
 export async function approveQuotation(_prev: unknown, formData: FormData): Promise<ActionResult> {
   const parsed = approveSchema.safeParse({ quotation_id: String(formData.get('quotation_id') ?? '') });
-  if (!parsed.success) return { ok: false, error: 'Cotización invalida.' };
+  if (!parsed.success) return { ok: false, error: 'Cotización inválida.' };
 
   return respond(
     parsed.data.quotation_id,
     'approve',
     null,
-    'Cotización aprobada. Coordinaremos la entrega contigo.',
+    'Cotización aprobada. PES programará la entrega y te mantendrá informado.',
   );
 }
 
@@ -275,7 +275,7 @@ export async function rejectQuotation(_prev: unknown, formData: FormData): Promi
     quotation_id: String(formData.get('quotation_id') ?? ''),
     reason: String(formData.get('reason') ?? '').trim(),
   });
-  if (!parsed.success) return { ok: false, error: 'Cotización invalida.' };
+  if (!parsed.success) return { ok: false, error: 'Cotización inválida.' };
 
   return respond(parsed.data.quotation_id, 'reject', parsed.data.reason || null, 'Registramos tu respuesta.');
 }

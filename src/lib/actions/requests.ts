@@ -289,7 +289,7 @@ export async function changeRequestStatus(_prev: unknown, formData: FormData): P
   if (!force && !canTransition(current.status as RequestStatus, status as RequestStatus)) {
     return {
       ok: false,
-      error: 'Esa transición de estado no es valida. Marca la casilla de forzar si es intencional.',
+      error: 'Esa transición de estado no es válida. Marca la casilla de forzar si es intencional.',
     };
   }
 

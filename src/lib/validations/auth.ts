@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
 export const loginSchema = z.object({
-  email: z.string().min(1, 'El correo es obligatorio').email('Correo electrónico invalido'),
+  email: z.string().min(1, 'El correo es obligatorio').email('Correo electrónico inválido'),
   password: z.string().min(1, 'La contraseña es obligatoria'),
 });
 
@@ -9,10 +9,10 @@ export const registerSchema = z
   .object({
     full_name: z.string().min(3, 'Ingresa tu nombre completo').max(120),
     company_name: z.string().max(120).optional().or(z.literal('')),
-    email: z.string().min(1, 'El correo es obligatorio').email('Correo electrónico invalido'),
+    email: z.string().min(1, 'El correo es obligatorio').email('Correo electrónico inválido'),
     phone: z
       .string()
-      .min(7, 'Ingresa un teléfono valido')
+      .min(7, 'Ingresa un teléfono válido')
       .max(20)
       .regex(/^[\d\s()+-]+$/, 'El teléfono solo puede contener números y los signos + - ( )'),
     password: z.string().min(8, 'La contraseña debe tener al menos 8 caracteres'),
@@ -24,13 +24,13 @@ export const registerSchema = z
   });
 
 export const recoverSchema = z.object({
-  email: z.string().min(1, 'El correo es obligatorio').email('Correo electrónico invalido'),
+    email: z.string().min(1, 'El correo es obligatorio').email('Correo electrónico inválido'),
 });
 
 export const profileSchema = z.object({
   full_name: z.string().min(3, 'Ingresa tu nombre completo').max(120),
   company_name: z.string().max(120).optional().or(z.literal('')),
-  phone: z.string().min(7, 'Ingresa un teléfono valido').max(20),
+  phone: z.string().min(7, 'Ingresa un teléfono válido').max(20),
 });
 
 export type LoginInput = z.infer<typeof loginSchema>;

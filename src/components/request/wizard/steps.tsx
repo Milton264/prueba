@@ -27,7 +27,7 @@ export function StepService({ data, update, errors }: { data: WizardData; update
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-lg font-semibold">Qué servicio necesitas?</h2>
+        <h2 className="text-lg font-semibold">¿Qué servicio necesitas?</h2>
         <p className="mt-1 text-sm text-navy-500">Selecciona el tipo de suministro.</p>
       </div>
 
@@ -60,7 +60,7 @@ export function StepQuantity({ data, update, errors }: { data: WizardData; updat
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-lg font-semibold">Cuánta cantidad necesitas?</h2>
+        <h2 className="text-lg font-semibold">¿Cuánta cantidad necesitas?</h2>
         <p className="mt-1 text-sm text-navy-500">
           Selecciona una cantidad sugerida o indica la tuya en galones.
         </p>
@@ -158,7 +158,7 @@ export function StepLocation({
       <div>
         <h2 className="text-lg font-semibold">Información del lugar</h2>
         <p className="mt-1 text-sm text-navy-500">
-          Necesitamos estos datos para coordinar el acceso de la cisterna.
+          Necesitamos estos datos para planificar el acceso de la cisterna.
         </p>
       </div>
 
@@ -266,7 +266,7 @@ export function StepLocation({
 
       <Field
         label="Fotos de referencia del lugar de entrega"
-        hint="Recomendado (hasta 3). Fotos de la entrada, el tanque o el punto de descarga ayudan al asesor a coordinar la entrega. Se almacenan de forma privada."
+        hint="Recomendado (hasta 3). Fotos de la entrada, el tanque o el punto de descarga ayudan al asesor a preparar la entrega. Se almacenan de forma privada."
       >
         <FileUpload files={files} onChange={onFilesChange} />
       </Field>
@@ -331,7 +331,7 @@ export function StepSchedule({ data, update, errors }: { data: WizardData; updat
       <div>
         <h2 className="text-lg font-semibold">Fecha y contacto</h2>
         <p className="mt-1 text-sm text-navy-500">
-          Indícanos cuándo prefieres recibir el servicio y con quien coordinamos.
+          Indícanos cuándo prefieres recibir el servicio y quién recibirá la entrega.
         </p>
       </div>
 
