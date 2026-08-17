@@ -30,6 +30,7 @@ export default async function ContactoPage() {
           <dl className="divide-y divide-navy-100 border-t-2 border-navy-900">
             {[
               ['Correo electrónico', email, `mailto:${email}`, false],
+              ['Teléfono', formatPhone(siteConfig.phone), `tel:+${siteConfig.phone}`, true],
               ['WhatsApp', formatPhone(wa), null, true],
               ['Ubicación', address, null, false],
               ['Horario', 'Lunes a viernes · 8:00 a. m. – 5:00 p. m.', null, false],

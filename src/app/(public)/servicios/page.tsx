@@ -18,20 +18,12 @@ export default function ServiciosPage() {
     <div className="pes-container pes-section">
       <p className="pes-eyebrow">Servicios</p>
       <h1 className="mt-3 max-w-2xl text-[32px] font-semibold leading-tight sm:text-[40px]">
-<<<<<<< HEAD
         Suministro por cisterna, de punta a punta
       </h1>
       <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-navy-600">
         Panama Energy Solutions presta directamente el suministro de diésel y agua potable, con el
         respaldo de compañías aliadas que apoyan nuestras operaciones cuando es necesario. Recibimos
         tu solicitud, confirmamos disponibilidad y precio, y te acompañamos hasta la entrega.
-=======
-        Suministro por cisterna, coordinado de punta a punta
-      </h1>
-      <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-navy-600">
-        Panama Energy Solutions coordina el suministro con compañías operadoras aliadas. Recibimos
-        tu solicitud, verificamos disponibilidad y precio, y te acompañamos hasta la entrega.
->>>>>>> a7c438e4a48a69b977bd30deb24d61854332ffbc
       </p>
 
       <div className="mt-16 space-y-16">

@@ -35,7 +35,7 @@ export default async function ClientLayout({ children }: { children: React.React
     <div className="min-h-screen bg-white">
       <Sidebar items={NAV} title="Portal del cliente" user={identity} />
       <div className="lg:pl-[260px]">
-        <Topbar items={NAV} user={identity} unread={unread ?? 0} />
+        <Topbar items={NAV} user={identity} unread={unread ?? 0} notificationHref="/portal/cotizaciones" />
         <main className="px-4 py-6 sm:px-6 lg:px-8 lg:py-8">{children}</main>
       </div>
     </div>

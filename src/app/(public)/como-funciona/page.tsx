@@ -14,11 +14,7 @@ const STEPS = [
   {
     n: '02',
     title: 'PES verifica disponibilidad y precio',
-<<<<<<< HEAD
     text: 'Nuestro equipo confirma la disponibilidad, el costo y las fechas posibles para tu entrega.',
-=======
-    text: 'Nuestro equipo consulta con las compañías operadoras aliadas la disponibilidad real, el costo y las fechas posibles para tu entrega.',
->>>>>>> a7c438e4a48a69b977bd30deb24d61854332ffbc
   },
   {
     n: '03',
@@ -27,8 +23,8 @@ const STEPS = [
   },
   {
     n: '04',
-    title: 'Coordinamos la entrega',
-    text: 'Con la cotización aprobada confirmamos la programación del servicio y te mantenemos informado hasta que quede completado.',
+    title: 'PES realiza la entrega',
+    text: 'Con la cotización aprobada programamos y ejecutamos el servicio, manteniéndote informado hasta completarlo.',
   },
 ];
 
@@ -40,12 +36,8 @@ export default function ComoFuncionaPage() {
         Cómo funciona
       </h1>
       <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-navy-600">
-<<<<<<< HEAD
-        PES presta directamente el servicio de suministro, con apoyo de compañías aliadas cuando la operación lo requiere. Recibimos tu solicitud,
-=======
-        PES actúa como intermediario comercial y coordinador del servicio. Recibimos tu solicitud,
->>>>>>> a7c438e4a48a69b977bd30deb24d61854332ffbc
-        gestionamos con los operadores y mantenemos la comunicación contigo durante todo el proceso.
+        PES presta directamente el servicio de suministro. Cuando la operación lo requiere, contamos
+        con compañías aliadas que asisten y apoyan nuestra capacidad logística, siempre bajo la gestión de PES.
       </p>
 
       <Reveal as="ol" className="motion-stagger mt-16 divide-y divide-navy-100 border-t-2 border-navy-900">

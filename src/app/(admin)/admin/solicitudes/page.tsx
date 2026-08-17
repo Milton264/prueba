@@ -135,6 +135,17 @@ export default async function AdminSolicitudesPage({
   searchParams: Promise<SearchParams>;
 }) {
   const params = await searchParams;
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+
+  if (user) {
+    await supabase
+      .from('notifications')
+      .update({ read_at: new Date().toISOString() })
+      .eq('recipient_user_id', user.id)
+      .eq('type', 'nueva_solicitud')
+      .is('read_at', null);
+  }
 
   return (
     <div>

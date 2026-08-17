@@ -55,15 +55,14 @@ export function ProvisionForm() {
         </label>
       </fieldset>
 
-      {role === 'admin' && (
-        <Field
-          label="Clave de configuración"
-          htmlFor="setup_key"
-          hint="Solo si definiste SETUP_SECRET en el entorno. En desarrollo puedes dejarlo vacío."
-        >
-          <Input id="setup_key" name="setup_key" type="password" placeholder="Clave para crear administradores" autoComplete="off" />
-        </Field>
-      )}
+      <Field
+        label="Clave de configuración"
+        htmlFor="setup_key"
+        hint="Obligatoria para crear o reparar cualquier cuenta desde esta herramienta."
+        required
+      >
+        <Input id="setup_key" name="setup_key" type="password" placeholder="Clave de puesta en marcha" autoComplete="off" required />
+      </Field>
 
       <Button type="submit" fullWidth size="lg" loading={pending}>
         Crear cuenta y entrar

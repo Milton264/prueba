@@ -131,7 +131,7 @@ export default async function SolicitudEnviadaPage({
               <Link href={trackingHref} className="font-semibold underline">
                 ver mi solicitud
               </Link>
-              . También te lo enviamos a tu correo.
+              . Este enlace es privado; guárdalo para dar seguimiento.
             </Notice>
           )}
 

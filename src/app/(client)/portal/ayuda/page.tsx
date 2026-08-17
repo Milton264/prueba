@@ -14,11 +14,7 @@ export const metadata: Metadata = { title: 'Ayuda' };
 const FAQ = [
   {
     q: 'Cuanto tarda la cotización?',
-<<<<<<< HEAD
     a: 'PES confirma disponibilidad y precio directamente. El tiempo depende del producto y la zona; te notificamos apenas la cotización este lista.',
-=======
-    a: 'PES verifica disponibilidad y precio con las compañías operadoras aliadas. El tiempo depende del producto y la zona; te notificamos apenas la cotización este lista.',
->>>>>>> a7c438e4a48a69b977bd30deb24d61854332ffbc
   },
   {
     q: 'Mi solicitud confirma el precio y la fecha?',
@@ -40,7 +36,7 @@ const FAQ = [
 
 const STATUS_HELP: { status: RequestStatus; text: string }[] = [
   { status: 'solicitud_recibida', text: 'Recibimos tu solicitud y está en cola de revisión.' },
-  { status: 'verificando_disponibilidad', text: 'Estamos consultando disponibilidad y precio con los operadores.' },
+  { status: 'verificando_disponibilidad', text: 'PES está confirmando disponibilidad, precio y capacidad operativa para tu entrega.' },
   { status: 'cotizacion_enviada', text: 'Tu cotización está lista y espera tu respuesta.' },
   { status: 'cotizacion_aprobada', text: 'Aprobaste la cotización. Procedemos a programar el servicio.' },
   { status: 'cambios_solicitados', text: 'Recibimos tu solicitud de cambios y preparamos una nueva version.' },

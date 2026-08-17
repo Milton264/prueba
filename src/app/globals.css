@@ -22,12 +22,12 @@
   }
 
   body, button, input, textarea, select {
-    font-family: var(--font-sans), Inter, Arial, Helvetica, sans-serif;
+    font-family: var(--font-sans), Manrope, Arial, Helvetica, sans-serif;
   }
 
   h1, h2, h3, h4 {
-    @apply font-sans text-navy-900 font-semibold;
-    letter-spacing: -0.01em;
+    @apply font-display text-navy-900 font-semibold;
+    letter-spacing: -0.018em;
   }
 
   ::selection {

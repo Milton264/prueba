@@ -1,4 +1,5 @@
 import { createClient } from '@/lib/supabase/server';
+import { notFound } from 'next/navigation';
 
 /**
  * Página de diagnóstico para depurar el acceso en local. Muestra si las
@@ -14,6 +15,9 @@ async function checks() {
   const anon = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
   const service = process.env.SUPABASE_SERVICE_ROLE_KEY;
   const site = process.env.NEXT_PUBLIC_SITE_URL;
+  const resend = process.env.RESEND_API_KEY;
+  const rfqFrom = process.env.RFQ_FROM_EMAIL;
+  const rfqTo = process.env.RFQ_NOTIFICATION_TO || process.env.NEXT_PUBLIC_CONTACT_EMAIL;
 
   const result: { label: string; ok: boolean; detail: string }[] = [];
 
@@ -36,6 +40,13 @@ async function checks() {
     label: 'NEXT_PUBLIC_SITE_URL',
     ok: !!site,
     detail: site || 'FALTA (se usará el valor por defecto)',
+  });
+  result.push({
+    label: 'Notificación de nuevas RFQ',
+    ok: !!resend && !!rfqFrom && !!rfqTo,
+    detail: resend && rfqFrom && rfqTo
+      ? `Activa — destino: ${rfqTo}`
+      : 'FALTA RESEND_API_KEY, RFQ_FROM_EMAIL o RFQ_NOTIFICATION_TO',
   });
 
   // Prueba de conexión: contar filas de una tabla pública.
@@ -72,6 +83,8 @@ async function checks() {
 }
 
 export default async function DiagnosticoPage() {
+  if (process.env.NODE_ENV === 'production') notFound();
+
   const result = await checks();
   const allOk = result.every((r) => r.ok);
 

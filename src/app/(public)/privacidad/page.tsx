@@ -4,15 +4,15 @@ import { getSettings } from '@/lib/supabase/queries';
 
 export const metadata: Metadata = { title: 'Aviso de privacidad' };
 
-const DEFAULT_POLICY = `Panama Energy Solutions recopila únicamente la información necesaria para atender y coordinar tus solicitudes de suministro de diésel y agua potable: nombre, empresa, correo electrónico, teléfono, dirección de entrega y los detalles técnicos de la instalación.
+const DEFAULT_POLICY = `Panama Energy Solutions recopila únicamente la información necesaria para atender y ejecutar tus solicitudes de suministro de diésel y agua potable: nombre, empresa, correo electrónico, teléfono, dirección de entrega y los detalles técnicos de la instalación.
 
-Uso de la información. Los datos se utilizan para verificar disponibilidad y precio con nuestras compañías operadoras aliadas, preparar cotizaciones, coordinar la entrega y mantener la comunicacion contigo.
+Uso de la información. Los datos se utilizan para verificar disponibilidad y precio, preparar cotizaciones, programar y ejecutar la entrega, y mantener la comunicación contigo.
 
-Compartición con terceros. Compartimos con los operadores aliados únicamente los datos operativos indispensables para ejecutar el servicio: tipo de producto, cantidad, dirección de entrega, fecha y horario, y datos de la persona que recibe. No comercializamos ni cedemos tu información con fines publicitarios.
+Compartición con terceros. PES presta directamente el servicio. Cuando una compañía aliada asiste o apoya una operación, compartimos únicamente los datos indispensables para esa ejecución: tipo de producto, cantidad, dirección de entrega, fecha y horario, y datos de la persona que recibe. No comercializamos ni cedemos tu información con fines publicitarios.
 
 Conservación y seguridad. La información se conserva mientras exista relacion comercial y por el periodo que exijan las obligaciones legales aplicables. Aplicamos controles de acceso por rol: cada cliente solo puede consultar sus propias solicitudes y cotizaciones.
 
-Fotografías. Las imágenes que cargues del tanque o del acceso se almacenan de forma privada y se utilizan exclusivamente para la coordinación del servicio.
+Fotografías. Las imágenes que cargues del tanque o del acceso se almacenan de forma privada y se utilizan exclusivamente para preparar y ejecutar el servicio.
 
 Tus derechos. Puedes solicitar acceso, corrección o eliminación de tus datos personales escribiendo a nuestro correo de contacto.`;
 
