@@ -17,6 +17,9 @@ import {
   Ship,
   Siren,
   Truck,
+  Utensils,
+  Warehouse,
+  Wrench,
   Zap,
   type LucideIcon,
 } from 'lucide-react';
@@ -118,6 +121,7 @@ export const DIESEL_SECTORS: { icon: LucideIcon; label: string }[] = [
   { icon: Building2, label: 'Edificios corporativos' },
   { icon: ShoppingCart, label: 'Centros comerciales' },
   { icon: Hotel, label: 'Hoteles e industrias' },
+  { icon: Utensils, label: 'Restaurantes' },
   { icon: Siren, label: 'Emergencias 24/7' },
   { icon: HardHat, label: 'Obras y proyectos' },
 ];
@@ -130,6 +134,8 @@ export const AGUA_SECTORS: { icon: LucideIcon; label: string }[] = [
   { icon: Activity, label: 'Operaciones críticas' },
   { icon: Ship, label: 'Barcos' },
   { icon: Anchor, label: 'Puertos' },
+  { icon: Warehouse, label: 'Bodegas y depósitos' },
+  { icon: Wrench, label: 'Proyectos de construcción' },
 ];
 
 /* ------------------------------------------------------------------ */
