@@ -97,7 +97,7 @@ export default async function HomePage() {
                 <dl className="grid gap-x-6 gap-y-4 sm:grid-cols-2">
                   {[
                     ['Productos', 'Diésel · Agua potable'],
-                    ['Modalidad', 'Cisterna · Barcaza'],
+                    ['Modalidad', 'Cisterna'],
                     ['Cobertura', 'Todo Panamá'],
                     ['Operación', 'Servicio directo PES'],
                   ].map(([k, v]) => (
