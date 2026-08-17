@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Bell } from 'lucide-react';
 import { initials } from '@/lib/format';
@@ -16,10 +17,12 @@ export function Topbar({
   items,
   user,
   unread = 0,
+  notificationHref,
 }: {
   items: NavItem[];
   user: { name: string; email: string };
   unread?: number;
+  notificationHref?: string;
 }) {
   const pathname = usePathname();
 
@@ -32,8 +35,8 @@ export function Topbar({
       <h1 className="truncate font-sans text-[12px] font-medium uppercase tracking-eyebrow text-navy-900">{match?.label ?? 'Panel'}</h1>
 
       <div className="flex items-center gap-3">
-        <button
-          type="button"
+        <Link
+          href={notificationHref ?? pathname}
           className="relative grid h-10 w-10 place-items-center rounded-lg text-navy-300 transition-[transform,background-color,color] duration-200 hover:-translate-y-px hover:bg-mist active:translate-y-0 hover:text-navy-700"
           aria-label={unread > 0 ? `${unread} notificaciones sin leer` : 'Notificaciones'}
         >
@@ -47,7 +50,7 @@ export function Topbar({
               {unread > 9 ? '9+' : unread}
             </span>
           )}
-        </button>
+        </Link>
 
         <div className="flex items-center gap-2.5 border-l border-navy-100 pl-3">
           <div className="text-right">

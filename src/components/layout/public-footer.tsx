@@ -18,8 +18,8 @@ export function PublicFooter({ whatsapp, email }: { whatsapp?: string; email?: s
             {siteConfig.tagline}
           </p>
           <p className="mt-5 max-w-sm text-[13px] leading-relaxed text-navy-600">
-            Suministro de diésel y agua potable por cisterna, con entrega directa en las instalaciones
-            del cliente en toda Panamá.
+            Suministro directo de diésel y agua potable por cisterna y barcaza en todo Panamá, con
+            apoyo de compañías aliadas cuando la operación lo requiere.
           </p>
           <p className="mt-4 text-[12px] text-navy-500">
             PES es una división de{' '}
@@ -33,6 +33,14 @@ export function PublicFooter({ whatsapp, email }: { whatsapp?: string; email?: s
             <div>
               <dt className="font-sans text-[10px] uppercase tracking-eyebrow text-navy-400">Correo</dt>
               <dd><a href={`mailto:${mail}`} className="text-navy-700 transition-colors hover:text-navy-900">{mail}</a></dd>
+            </div>
+            <div>
+              <dt className="font-sans text-[10px] uppercase tracking-eyebrow text-navy-400">Teléfono</dt>
+              <dd>
+                <a href={`tel:+${siteConfig.phone}`} className="font-sans tabular-nums text-navy-700 transition-colors hover:text-navy-900">
+                  {formatPhone(siteConfig.phone)}
+                </a>
+              </dd>
             </div>
             <div>
               <dt className="font-sans text-[10px] uppercase tracking-eyebrow text-navy-400">WhatsApp</dt>
@@ -51,17 +59,6 @@ export function PublicFooter({ whatsapp, email }: { whatsapp?: string; email?: s
               <dt className="font-sans text-[10px] uppercase tracking-eyebrow text-navy-400">Ubicación</dt>
               <dd className="text-navy-700">{siteConfig.address}</dd>
             </div>
-<<<<<<< HEAD
-=======
-            <div>
-              <dt className="font-sans text-[10px] uppercase tracking-eyebrow text-navy-400">Sitio</dt>
-              <dd>
-                <a href={siteConfig.url} className="text-navy-700 transition-colors hover:text-navy-900">
-                  {siteConfig.url.replace(/^https?:\/\//, '')}
-                </a>
-              </dd>
-            </div>
->>>>>>> a7c438e4a48a69b977bd30deb24d61854332ffbc
           </dl>
         </div>
 

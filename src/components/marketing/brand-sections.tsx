@@ -1,9 +1,9 @@
 import {
+  Activity,
   Anchor,
   Building,
   Building2,
   Clock,
-  Cross,
   Droplet,
   Factory,
   Fuel,
@@ -41,15 +41,12 @@ import type { PhotoStripItem } from './photo-strip';
 const TRUST_BADGES: { icon: LucideIcon; label: string }[] = [
   { icon: ShieldCheck, label: 'Seguro y confiable' },
   { icon: Clock, label: 'Servicio 24/7' },
+  { icon: Zap, label: 'Entrega eficiente' },
   { icon: MapPin, label: 'Cobertura nacional' },
 ];
 
-<<<<<<< HEAD
 export function TrustBadges({ className, variant = 'light' }: { className?: string; variant?: 'light' | 'dark' }) {
   const dark = variant === 'dark';
-=======
-export function TrustBadges({ className }: { className?: string }) {
->>>>>>> a7c438e4a48a69b977bd30deb24d61854332ffbc
   return (
     <ul className={cn('motion-stagger flex flex-wrap gap-x-9 gap-y-5', className)}>
       {TRUST_BADGES.map(({ icon: Icon, label }) => (
@@ -57,16 +54,12 @@ export function TrustBadges({ className }: { className?: string }) {
           <span className="icon-response grid h-11 w-11 shrink-0 place-items-center rounded-full bg-gold-400 text-navy-900">
             <Icon className="h-5 w-5" aria-hidden />
           </span>
-<<<<<<< HEAD
           <span
             className={cn(
               'font-sans text-[11px] font-semibold uppercase leading-tight tracking-wide2',
               dark ? 'text-white' : 'text-navy-900',
             )}
           >
-=======
-          <span className="font-sans text-[11px] font-semibold uppercase leading-tight tracking-wide2 text-navy-900">
->>>>>>> a7c438e4a48a69b977bd30deb24d61854332ffbc
             {label}
           </span>
         </li>
@@ -102,21 +95,13 @@ export function SectorsGrid({
         <span className="inline-block border-b-2 border-gold-400 pb-2">Sectores que atendemos</span>
       </p>
 
-<<<<<<< HEAD
       <Reveal className="motion-stagger mt-10 grid grid-cols-2 gap-x-4 gap-y-9 sm:grid-cols-3 lg:grid-cols-4">
-=======
-      <Reveal className="motion-stagger mt-10 grid grid-cols-2 gap-x-4 gap-y-9 sm:grid-cols-4 lg:grid-cols-8">
->>>>>>> a7c438e4a48a69b977bd30deb24d61854332ffbc
         {items.map(({ icon: Icon, label }) => (
           <div key={label} className="group flex flex-col items-center gap-3 px-2 text-center">
             <span className="icon-response grid h-16 w-16 shrink-0 place-items-center rounded-full border-2 border-gold-400 text-gold-500">
-              <Icon className="h-6 w-6" aria-hidden />
+            <Icon className="h-7 w-7 overflow-visible" strokeWidth={1.8} aria-hidden />
             </span>
-<<<<<<< HEAD
             <span className="font-sans text-[11px] font-semibold uppercase leading-snug tracking-wide2 text-navy-800">
-=======
-            <span className="font-sans text-[10.5px] font-semibold uppercase leading-snug tracking-wide2 text-navy-800">
->>>>>>> a7c438e4a48a69b977bd30deb24d61854332ffbc
               {label}
             </span>
           </div>
@@ -142,7 +127,7 @@ export const AGUA_SECTORS: { icon: LucideIcon; label: string }[] = [
   { icon: ShoppingCart, label: 'Comercios' },
   { icon: Building2, label: 'Edificios' },
   { icon: Factory, label: 'Industrias' },
-  { icon: Cross, label: 'Operaciones críticas' },
+  { icon: Activity, label: 'Operaciones críticas' },
   { icon: Ship, label: 'Barcos' },
   { icon: Anchor, label: 'Puertos' },
 ];
@@ -296,7 +281,7 @@ export function ContactBar({
           className="group flex items-center gap-3 pt-6 transition-transform duration-200 first:pt-0 hover:translate-x-1 sm:pt-0"
         >
           <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-gold-400 text-navy-900">
-            <MessageCircle className="h-4.5 w-4.5" aria-hidden />
+            <MessageCircle className="h-[18px] w-[18px]" strokeWidth={1.8} aria-hidden />
           </span>
           <span>
             <span className="block font-sans text-[10px] uppercase tracking-wide2 text-gold-400">
@@ -310,7 +295,7 @@ export function ContactBar({
 
         <a href={`mailto:${mail}`} className="group flex items-center gap-3 pt-6 transition-transform duration-200 hover:translate-x-1 sm:pt-0 sm:pl-6">
           <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-gold-400 text-navy-900">
-            <Mail className="h-4.5 w-4.5" aria-hidden />
+            <Mail className="h-[18px] w-[18px]" strokeWidth={1.8} aria-hidden />
           </span>
           <span>
             <span className="block font-sans text-[10px] uppercase tracking-wide2 text-gold-400">Correo</span>
@@ -320,7 +305,7 @@ export function ContactBar({
 
         <div className="group flex items-center gap-3 pt-6 transition-transform duration-200 hover:translate-x-1 sm:pt-0 sm:pl-6">
           <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-gold-400 text-navy-900">
-            <Clock className="h-4.5 w-4.5" aria-hidden />
+            <Clock className="h-[18px] w-[18px]" strokeWidth={1.8} aria-hidden />
           </span>
           <span>
             <span className="block font-sans text-[10px] uppercase tracking-wide2 text-gold-400">Atención</span>
@@ -337,7 +322,6 @@ export function ContactBar({
 /* Se muestran como tira horizontal, igual que en los flyers.          */
 /* ------------------------------------------------------------------ */
 export const DIESEL_STRIP_ITEMS: PhotoStripItem[] = [
-<<<<<<< HEAD
   { src: '/images/diesel/flota_moderna.jpg', alt: 'Flota de camiones cisterna PES', label: 'Flota moderna', icon: 'truck' },
   { src: '/images/diesel/suministro_seguro.jpg', alt: 'Conexiones y descarga segura de diésel', label: 'Suministro seguro', icon: 'shield' },
   { src: '/images/diesel/energia_no_se_detiene.jpg', alt: 'Planta eléctrica de respaldo', label: 'Energía que no se detiene', icon: 'zap' },
@@ -350,18 +334,4 @@ export const AGUA_STRIP_ITEMS: PhotoStripItem[] = [
   { src: '/images/agua/barco_carga.jpg', alt: 'Barcaza de suministro en el puerto', label: 'Suministro a embarcaciones', icon: 'ship' },
   { src: '/images/agua/manguera_puerto.jpg', alt: 'Carga de agua en el muelle', label: 'Operación en puertos', icon: 'anchor' },
   { src: '/images/agua/ciudad_panama.jpg', alt: 'Cobertura en Ciudad de Panamá', label: 'Cobertura nacional', icon: 'map' },
-=======
-  { src: '/images/diesel/flota_moderna.jpg', alt: 'Camión cisterna PES de frente en el puerto', label: 'Flota moderna', icon: 'truck' },
-  { src: '/images/diesel/suministro_seguro.jpg', alt: 'Camión cisterna PES en operación', label: 'Suministro seguro', icon: 'shield' },
-  { src: '/images/diesel/energia_no_se_detiene.jpg', alt: 'Cisterna PES junto a buque en el muelle', label: 'Energía que no se detiene', icon: 'zap' },
-  { src: '/images/diesel/operaciones_24_7.jpg', alt: 'Cisterna PES en el puerto de Panamá', label: 'Operaciones 24/7', icon: 'clock' },
-];
-
-export const AGUA_STRIP_ITEMS: PhotoStripItem[] = [
-  { src: '/images/agua/plantas_agua.jpg', alt: 'Camión cisterna de agua potable conectado a un buque', label: 'Suministro a buques', icon: 'ship' },
-  { src: '/images/agua/agua_cayendo.jpg', alt: 'Camión cisterna de agua potable en el puerto', label: 'Agua potable', icon: 'droplet' },
-  { src: '/images/agua/barco_carga.jpg', alt: 'Camión cisterna en operación portuaria', label: 'Operación en puertos', icon: 'anchor' },
-  { src: '/images/agua/manguera_puerto.jpg', alt: 'Cisterna junto a embarcación en muelle', label: 'Entrega a embarcaciones', icon: 'ship' },
-  { src: '/images/agua/ciudad_panama.jpg', alt: 'Flota de cisternas PES en el puerto', label: 'Cobertura nacional', icon: 'map' },
->>>>>>> a7c438e4a48a69b977bd30deb24d61854332ffbc
 ];

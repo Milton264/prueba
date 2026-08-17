@@ -60,7 +60,7 @@ export const TIME_SLOT_LABELS = Object.fromEntries(
 ) as Record<string, string>;
 
 export const URGENCY_TYPES: { value: UrgencyType; label: string; hint: string }[] = [
-  { value: 'normal', label: 'Normal', hint: 'Coordinación estandar según disponibilidad.' },
+  { value: 'normal', label: 'Normal', hint: 'Programación estándar según disponibilidad.' },
   { value: 'urgente', label: 'Urgente', hint: 'Prioridad de atención. Puede aplicar recargo.' },
 ];
 

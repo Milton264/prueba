@@ -9,11 +9,22 @@ type CookieToSet = { name: string; value: string; options?: CookieOptions };
 
 export async function middleware(request: NextRequest) {
   let response = NextResponse.next({ request });
+  const { pathname } = request.nextUrl;
+
+  // Herramientas de soporte fuera de la superficie pública de producción.
+  if (pathname === '/diagnostico' && process.env.NODE_ENV === 'production') {
+    return new NextResponse(null, { status: 404 });
+  }
+  if (
+    pathname === '/configurar-acceso' &&
+    (process.env.ENABLE_SETUP_ROUTE !== 'true' || !process.env.SETUP_SECRET)
+  ) {
+    return new NextResponse(null, { status: 404 });
+  }
 
   // Sin credenciales de Supabase no hay sesión posible. Se deja pasar la parte
   // pública para poder revisar el diseño, y se bloquean las areas privadas.
   if (!isSupabaseConfigured()) {
-    const { pathname } = request.nextUrl;
     if (pathname.startsWith(CLIENT_PREFIX) || pathname.startsWith(ADMIN_PREFIX)) {
       const url = request.nextUrl.clone();
       url.pathname = '/iniciar-sesion';
@@ -41,7 +52,6 @@ export async function middleware(request: NextRequest) {
   );
 
   const { data: { user } } = await supabase.auth.getUser();
-  const { pathname } = request.nextUrl;
   const isProtected = pathname.startsWith(CLIENT_PREFIX) || pathname.startsWith(ADMIN_PREFIX);
 
   if (isProtected && !user) {

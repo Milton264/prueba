@@ -4,6 +4,7 @@ import { revalidatePath } from 'next/cache';
 import { createAdminClient } from '@/lib/supabase/admin';
 import { createClient } from '@/lib/supabase/server';
 import { canTransition } from '@/lib/status';
+import { sendNewRequestEmail } from '@/lib/email/rfq-notification';
 import {
   changeStatusSchema,
   completeServiceSchema,
@@ -65,15 +66,27 @@ export async function createServiceRequest(
   let clientProfileId: string;
   let isGuest = false;
   let db = authed;
+  let requester: {
+    fullName: string;
+    companyName?: string | null;
+    email: string;
+    phone?: string | null;
+  };
 
   if (user) {
     const { data: profile } = await authed
       .from('client_profiles')
-      .select('id')
+      .select('id, full_name, company_name, email, phone')
       .eq('user_id', user.id)
       .maybeSingle();
     if (!profile) return { ok: false, error: 'No encontramos tu perfil de cliente.' };
     clientProfileId = profile.id;
+    requester = {
+      fullName: profile.full_name,
+      companyName: profile.company_name,
+      email: profile.email,
+      phone: profile.phone,
+    };
   } else {
     // Invitado: sus datos de contacto son obligatorios.
     if (!d.guest_full_name || !d.guest_email || !d.guest_phone) {
@@ -85,6 +98,12 @@ export async function createServiceRequest(
     db = admin as unknown as typeof authed;
 
     const email = d.guest_email.toLowerCase();
+    requester = {
+      fullName: d.guest_full_name,
+      companyName: d.guest_company || null,
+      email,
+      phone: d.guest_phone,
+    };
     const { data: existing } = await admin
       .from('client_profiles')
       .select('id')
@@ -139,7 +158,7 @@ export async function createServiceRequest(
       terms_accepted_at: new Date().toISOString(),
       is_guest: isGuest,
     })
-    .select('id, request_number, access_token')
+    .select('id, request_number, access_token, created_at')
     .single();
 
   if (error || !request) {
@@ -187,6 +206,47 @@ export async function createServiceRequest(
       tank_capacity_gal: d.tank_capacity_gal ?? null,
     });
   }
+
+  // Aviso interno para todos los administradores. La solicitud sigue siendo
+  // válida aunque una alerta secundaria no pueda crearse.
+  try {
+    const admin = createAdminClient();
+    const { data: admins, error: adminsError } = await admin
+      .from('users')
+      .select('id')
+      .eq('role', 'admin')
+      .eq('is_active', true);
+
+    if (adminsError) {
+      console.error('createServiceRequest/adminRecipients', adminsError);
+    } else if (admins?.length) {
+      const { error: notificationError } = await admin.from('notifications').insert(
+        admins.map(({ id }) => ({
+          recipient_user_id: id,
+          client_profile_id: clientProfileId,
+          service_request_id: request.id,
+          type: 'nueva_solicitud',
+          title: `Nueva RFQ ${request.request_number}`,
+          body: `${d.service_type === 'diesel' ? 'Diésel' : 'Agua potable'} · ${d.facility_name} · ${d.province}`,
+          link: `/admin/solicitudes/${request.id}`,
+        })),
+      );
+      if (notificationError) console.error('createServiceRequest/adminNotification', notificationError);
+    }
+  } catch (notificationError) {
+    console.error('createServiceRequest/adminNotification', notificationError);
+  }
+
+  // El correo incluye todos los campos ingresados. Si el proveedor de correo
+  // falla, la RFQ permanece registrada y visible en /admin/solicitudes.
+  await sendNewRequestEmail({
+    requestId: request.id,
+    requestNumber: request.request_number,
+    createdAt: request.created_at,
+    isGuest,
+    requester,
+    data: d,
+  });
 
   revalidatePath('/portal');
   revalidatePath('/admin');

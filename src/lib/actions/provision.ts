@@ -22,15 +22,20 @@ export async function provisionAccess(_prev: unknown, formData: FormData): Promi
   const setupKey = String(formData.get('setup_key') ?? '');
   const role = makeAdmin ? 'admin' : 'client';
 
-  // Protección opcional: si se define SETUP_SECRET en el entorno, crear cuentas
-  // de administrador exige esa clave. En desarrollo, si no se define, la página
-  // funciona sin restricción. En producción, define SETUP_SECRET (o elimina esta
-  // página) para que nadie pueda auto-asignarse el rol admin.
+  // La herramienta de puesta en marcha está cerrada por defecto y exige la
+  // misma clave para cualquier alta o reparación; así nadie puede apropiarse de
+  // una cuenta existente ni auto-asignarse el rol de administrador.
   const requiredSecret = process.env.SETUP_SECRET;
-  if (makeAdmin && requiredSecret && setupKey !== requiredSecret) {
+  if (process.env.ENABLE_SETUP_ROUTE !== 'true' || !requiredSecret) {
     return {
       ok: false,
-      error: 'La clave de configuración es incorrecta. No se puede crear un administrador sin ella.',
+      error: 'La herramienta de configuración está deshabilitada.',
+    };
+  }
+  if (setupKey !== requiredSecret) {
+    return {
+      ok: false,
+      error: 'La clave de configuración es incorrecta.',
     };
   }
 
