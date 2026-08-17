@@ -26,7 +26,7 @@ export function ReportFilters() {
     <div className="pes-card p-4">
       <div className="mb-3 flex items-center gap-2 text-sm font-medium text-navy-900">
         <CalendarRange className="h-4 w-4 text-navy-300" aria-hidden />
-        Periodo
+        Período
         {(params.get('desde') || params.get('hasta')) && (
           <Button variant="ghost" size="sm" className="ml-auto text-navy-500" onClick={() => router.push('/admin/reportes')}>
             <X className="h-3.5 w-3.5" aria-hidden />

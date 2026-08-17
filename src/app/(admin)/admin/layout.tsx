@@ -19,7 +19,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
   if (!user) redirect('/iniciar-sesion?next=/admin');
   if (user.role !== 'admin') redirect('/portal');
 
-  const identity = { name: user.full_name || 'PES Coordinación', email: user.email };
+  const identity = { name: user.full_name || 'Equipo PES', email: user.email };
   const supabase = await createClient();
   const { count: unread } = await supabase
     .from('notifications')

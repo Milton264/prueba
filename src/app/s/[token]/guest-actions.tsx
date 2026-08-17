@@ -93,9 +93,9 @@ export function GuestQuotationActions({
         open={confirmApprove}
         onClose={() => setConfirmApprove(false)}
         onConfirm={() => respond('approve', '', () => setConfirmApprove(false))}
-        title="Confirmas que deseas aprobar esta cotización?"
+        title="¿Confirmas que deseas aprobar esta cotización?"
         description={`Al aprobar la cotización ${quotationNumber} aceptas los montos, la fecha propuesta y las condiciones de pago indicadas.`}
-        confirmLabel="Si, aprobar"
+        confirmLabel="Sí, aprobar"
         variant="success"
         loading={pending}
       />
@@ -117,7 +117,7 @@ export function GuestQuotationActions({
           </>
         }
       >
-        <Field label="Qué necesitas modificar?" htmlFor="g_changes" required>
+        <Field label="¿Qué necesitas modificar?" htmlFor="g_changes" required>
           <Textarea id="g_changes" rows={5} value={message} onChange={(e) => setMessage(e.target.value)} />
         </Field>
       </Dialog>

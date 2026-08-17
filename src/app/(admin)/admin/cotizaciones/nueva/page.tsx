@@ -47,7 +47,7 @@ export default async function NuevaCotizacionPage({
 
       {r.quantity_unknown && (
         <Notice tone="warning" className="mb-6">
-          El cliente indico que no conoce la capacidad exacta. Define la cantidad final a cotizar
+          El cliente indicó que no conoce la capacidad exacta. Define la cantidad final a cotizar
           antes de enviar.
         </Notice>
       )}

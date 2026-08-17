@@ -13,23 +13,23 @@ export const metadata: Metadata = { title: 'Ayuda' };
 
 const FAQ = [
   {
-    q: 'Cuanto tarda la cotización?',
-    a: 'PES confirma disponibilidad y precio directamente. El tiempo depende del producto y la zona; te notificamos apenas la cotización este lista.',
+    q: '¿Cuánto tarda la cotización?',
+    a: 'PES confirma disponibilidad y precio directamente. El tiempo depende del producto y la zona; te notificamos apenas la cotización esté lista.',
   },
   {
-    q: 'Mi solicitud confirma el precio y la fecha?',
+    q: '¿Mi solicitud confirma el precio y la fecha?',
     a: DISCLAIMER,
   },
   {
-    q: 'Puedo modificar una cotización recibida?',
-    a: 'Si. Desde el detalle de la solicitud puedes usar el boton "Solicitar cambios" y explicar que necesitas ajustar. Prepararemos una nueva version.',
+    q: '¿Puedo modificar una cotización recibida?',
+    a: 'Sí. Desde el detalle de la solicitud puedes usar el botón "Solicitar cambios" y explicar qué necesitas ajustar. Prepararemos una nueva versión.',
   },
   {
-    q: 'Qué pasa si no conozco la capacidad de mi tanque?',
-    a: 'En el paso de cantidad puedes marcar que no la conoces. Nuestro equipo la definira contigo durante la cotización.',
+    q: '¿Qué pasa si no conozco la capacidad de mi tanque?',
+    a: 'En el paso de cantidad puedes marcar que no la conoces. Nuestro equipo la definirá contigo durante la cotización.',
   },
   {
-    q: 'Como se realiza el pago?',
+    q: '¿Cómo se realiza el pago?',
     a: 'Las condiciones de pago se indican en cada cotización y se gestionan directamente con PES. En esta versión no procesamos pagos en línea.',
   },
 ];
@@ -39,10 +39,10 @@ const STATUS_HELP: { status: RequestStatus; text: string }[] = [
   { status: 'verificando_disponibilidad', text: 'PES está confirmando disponibilidad, precio y capacidad operativa para tu entrega.' },
   { status: 'cotizacion_enviada', text: 'Tu cotización está lista y espera tu respuesta.' },
   { status: 'cotizacion_aprobada', text: 'Aprobaste la cotización. Procedemos a programar el servicio.' },
-  { status: 'cambios_solicitados', text: 'Recibimos tu solicitud de cambios y preparamos una nueva version.' },
+  { status: 'cambios_solicitados', text: 'Recibimos tu solicitud de cambios y preparamos una nueva versión.' },
   { status: 'cotizacion_rechazada', text: 'La cotización fue rechazada. Puedes escribirnos para retomarla.' },
-  { status: 'servicio_programado', text: 'La entrega quedo agendada para la fecha confirmada.' },
-  { status: 'servicio_completado', text: 'El servicio se completo. Puedes ver la cantidad final y el comprobante.' },
+  { status: 'servicio_programado', text: 'La entrega quedó agendada para la fecha confirmada.' },
+  { status: 'servicio_completado', text: 'El servicio se completó. Puedes ver la cantidad final y el comprobante.' },
   { status: 'solicitud_cancelada', text: 'La solicitud fue cancelada.' },
 ];
 
@@ -51,7 +51,7 @@ export default async function AyudaPage() {
 
   return (
     <div>
-      <PageHeader title="Ayuda" description="Respuestas rapidas y contacto directo con nuestro equipo." />
+      <PageHeader title="Ayuda" description="Respuestas rápidas y contacto directo con nuestro equipo." />
 
       <div className="grid gap-6 lg:grid-cols-3">
         <div className="space-y-6 lg:col-span-2">

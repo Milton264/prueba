@@ -10,7 +10,7 @@ Uso de la información. Los datos se utilizan para verificar disponibilidad y pr
 
 Compartición con terceros. PES presta directamente el servicio. Cuando una compañía aliada asiste o apoya una operación, compartimos únicamente los datos indispensables para esa ejecución: tipo de producto, cantidad, dirección de entrega, fecha y horario, y datos de la persona que recibe. No comercializamos ni cedemos tu información con fines publicitarios.
 
-Conservación y seguridad. La información se conserva mientras exista relacion comercial y por el periodo que exijan las obligaciones legales aplicables. Aplicamos controles de acceso por rol: cada cliente solo puede consultar sus propias solicitudes y cotizaciones.
+Conservación y seguridad. La información se conserva mientras exista relación comercial y por el período que exijan las obligaciones legales aplicables. Aplicamos controles de acceso por rol: cada cliente solo puede consultar sus propias solicitudes y cotizaciones.
 
 Fotografías. Las imágenes que cargues del tanque o del acceso se almacenan de forma privada y se utilizan exclusivamente para preparar y ejecutar el servicio.
 

@@ -220,7 +220,7 @@ export default async function DetalleSolicitudPage({ params }: { params: Promise
 
           {!quotation && (
             <Notice tone="gold">
-              Tu solicitud está en proceso de verificación. Te avisaremos cuando la cotización este
+              Tu solicitud está en proceso de verificación. Te avisaremos cuando la cotización esté
               lista.
             </Notice>
           )}

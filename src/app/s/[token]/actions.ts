@@ -7,7 +7,7 @@ import type { ActionResult } from '@/types';
 const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
 const SUCCESS: Record<string, string> = {
-  approve: 'Cotización aprobada. Coordinaremos la entrega contigo.',
+  approve: 'Cotización aprobada. PES programará la entrega y te mantendrá informado.',
   changes: 'Enviamos tu solicitud de cambios al equipo de PES.',
   reject: 'Registramos tu respuesta.',
 };
@@ -28,7 +28,7 @@ export async function respondToQuotationByToken(input: {
   const { token, quotationId, action, message } = input;
 
   if (!UUID_RE.test(token) || !UUID_RE.test(quotationId)) {
-    return { ok: false, error: 'Enlace invalido.' };
+    return { ok: false, error: 'Enlace inválido.' };
   }
   if (action === 'changes' && (!message || message.trim().length < 10)) {
     return { ok: false, error: 'Explica qué necesitas modificar (mínimo 10 caracteres).' };

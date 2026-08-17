@@ -16,7 +16,7 @@ export function ProvisionForm() {
       {state && state.ok && state.message && <Notice tone="gold">{state.message}</Notice>}
 
       <Field label="Nombre" htmlFor="full_name">
-        <Input id="full_name" name="full_name" placeholder="Coordinación PES" autoComplete="name" />
+        <Input id="full_name" name="full_name" placeholder="Equipo PES" autoComplete="name" />
       </Field>
 
       <Field label="Correo electrónico" htmlFor="email" required>

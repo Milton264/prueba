@@ -78,7 +78,7 @@ export default async function ReportesPage({
       <MetricRow
         className="mt-6"
         metrics={[
-          { label: 'Solicitudes', value: rs.length, hint: 'En el periodo' },
+          { label: 'Solicitudes', value: rs.length, hint: 'En el período' },
           { label: 'Galones diésel', value: formatNumber(dieselGal) },
           { label: 'Galones agua', value: formatNumber(aguaGal) },
           { label: 'Clientes recurrentes', value: recurrentes, hint: 'Más de una solicitud' },
@@ -90,7 +90,7 @@ export default async function ReportesPage({
           <CardHeader><CardTitle>Solicitudes por mes</CardTitle></CardHeader>
           <CardContent>
             {monthRows.length === 0 ? (
-              <p className="text-sm text-navy-500">Sin datos en el periodo seleccionado.</p>
+              <p className="text-sm text-navy-500">Sin datos en el período seleccionado.</p>
             ) : (
               <ul className="space-y-3">
                 {monthRows.map((m) => (

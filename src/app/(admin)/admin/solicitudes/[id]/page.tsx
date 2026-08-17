@@ -108,7 +108,7 @@ export default async function AdminSolicitudDetalle({ params }: { params: Promis
                 size="sm"
                 variant={activeQuotation ? 'secondary' : 'primary'}
               >
-                {activeQuotation ? 'Nueva version' : 'Crear cotización'}
+                {activeQuotation ? 'Nueva versión' : 'Crear cotización'}
               </ButtonLink>
             </CardHeader>
             <CardContent>

@@ -18,7 +18,7 @@ export default async function ServiciosPage() {
     <div>
       <PageHeader
         title="Servicios"
-        description="Catalogo de servicios que ofrece PES. Define las cantidades sugeridas del formulario y los precios de referencia."
+        description="Catálogo de servicios que ofrece PES. Define las cantidades sugeridas del formulario y los precios de referencia."
       />
 
       <Notice tone="info" className="mb-6">

@@ -66,7 +66,7 @@ export default async function AdminCotizacionDetalle({ params }: { params: Promi
     <div>
       <PageHeader
         title={q.quotation_number}
-        description={`Solicitud ${r.request_number} · version ${q.version}`}
+        description={`Solicitud ${r.request_number} · versión ${q.version}`}
         backHref={`/admin/solicitudes/${r.id}`}
       >
         <QuotationStatusBadge status={q.status} />
@@ -131,7 +131,7 @@ export default async function AdminCotizacionDetalle({ params }: { params: Promi
             <Notice tone="warning">
               El cliente solicito cambios.{' '}
               <Link href={`/admin/cotizaciones/nueva?requestId=${r.id}`} className="font-semibold underline">
-                Crear nueva version
+                Crear nueva versión
               </Link>
             </Notice>
           )}

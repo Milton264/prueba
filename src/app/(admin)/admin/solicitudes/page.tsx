@@ -71,7 +71,7 @@ async function RequestsTable({ params }: { params: SearchParams }) {
       <Card>
         <EmptyState
           title="No hay solicitudes con estos filtros"
-          description="Ajusta los criterios de busqueda para ver mas resultados."
+          description="Ajusta los criterios de búsqueda para ver más resultados."
         />
       </Card>
     );

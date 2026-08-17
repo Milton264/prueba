@@ -46,7 +46,7 @@ export default async function CotizacionesPage() {
           <EmptyState
             icon={ReceiptText}
             title="Aún no tienes cotizaciones"
-            description="Cuándo PES verifique la disponibilidad de tu solicitud, tu cotización aparecerá aquí."
+            description="Cuando PES verifique la disponibilidad de tu solicitud, tu cotización aparecerá aquí."
             actionLabel="Crear solicitud"
             actionHref="/portal/solicitudes/nueva"
           />

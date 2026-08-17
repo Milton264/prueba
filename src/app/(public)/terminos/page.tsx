@@ -9,7 +9,7 @@ const DEFAULT_TERMS = `Naturaleza del servicio. Panama Energy Solutions presta d
 
 Solicitudes. El envío de una solicitud a través de esta plataforma no constituye una confirmación de disponibilidad, precio ni horario. Toda solicitud queda sujeta a verificación y confirmación por parte de PES. Cuando sea necesario, las compañías aliadas podrán asistir y apoyar la operación.
 
-Cotizaciones. Las cotizaciones emitidas por PES tienen la vigencia indicada en cada documento. Vencido ese plazo, los montos y condiciones pueden variar. La aprobación de una cotización por parte del cliente constituye la aceptación de los montos, la fecha propuesta y las condiciones de pago alli detalladas.
+Cotizaciones. Las cotizaciones emitidas por PES tienen la vigencia indicada en cada documento. Vencido ese plazo, los montos y condiciones pueden variar. La aprobación de una cotización por parte del cliente constituye la aceptación de los montos, la fecha propuesta y las condiciones de pago allí detalladas.
 
 Cantidades. Las cantidades indicadas en la solicitud son estimadas. La cantidad final entregada se registra al completar el servicio y puede diferir de la solicitada por razones técnicas de la instalación.
 

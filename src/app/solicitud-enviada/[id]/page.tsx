@@ -79,7 +79,7 @@ export default async function SolicitudEnviadaPage({
             <h1 className="mt-5 text-2xl font-semibold sm:text-3xl">Solicitud recibida</h1>
             <p className="mt-3 text-navy-600">
               Nuestro equipo verificará disponibilidad, precio y horario. Recibirás una notificación
-              cuando tu cotización este lista.
+              cuando tu cotización esté lista.
             </p>
           </div>
 
@@ -151,7 +151,7 @@ export default async function SolicitudEnviadaPage({
 
           {token && (
             <p className="mt-8 text-center text-sm text-navy-500">
-              Quieres ver todo tu historial en un solo lugar?{' '}
+              ¿Quieres ver todo tu historial en un solo lugar?{' '}
               <Link href="/registro" className="font-semibold text-navy-800 hover:text-navy-600">
                 Crea tu cuenta
               </Link>{' '}

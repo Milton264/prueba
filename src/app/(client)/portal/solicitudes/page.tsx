@@ -86,7 +86,7 @@ export default async function MisSolicitudesPage({
         {list.length === 0 ? (
           <EmptyState
             title="No hay solicitudes en esta vista"
-            description="Cuándo envies una solicitud aparecerá aquí con su estado actualizado."
+            description="Cuando envíes una solicitud aparecerá aquí con su estado actualizado."
             actionLabel="Crear solicitud"
             actionHref="/portal/solicitudes/nueva"
           />

@@ -92,7 +92,7 @@ export default async function DiagnosticoPage() {
     <div className="mx-auto max-w-2xl px-6 py-16">
       <h1 className="font-sans text-2xl font-semibold text-navy-900">Diagnóstico de acceso</h1>
       <p className="mt-2 text-sm text-navy-500">
-        Esta página verifica la conexión con Supabase. Bórrala antes de publicar en producción.
+        Esta página verifica la conexión con Supabase. En producción permanece cerrada y responde 404.
       </p>
 
       <div className={`mt-6 rounded-lg border px-4 py-3 text-sm ${allOk ? 'border-green-300 bg-green-50 text-green-800' : 'border-amber-300 bg-amber-50 text-amber-900'}`}>

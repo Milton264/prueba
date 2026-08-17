@@ -14,7 +14,7 @@ export default function Error({ error, reset }: { error: Error & { digest?: stri
         <p className="pes-eyebrow text-red-700">Error</p>
         <h1 className="mt-3 text-[26px] font-semibold leading-tight text-navy-900">Ocurrió un error</h1>
         <p className="mt-3 text-[14px] leading-relaxed text-navy-600">
-          No pudimos completar la operacion. Intenta de nuevo; si el problema continua, comunícate
+          No pudimos completar la operación. Intenta de nuevo; si el problema continúa, comunícate
           con nuestro equipo.
         </p>
         {error.digest && <p className="mt-3 font-sans text-[11px] text-navy-400">Referencia: {error.digest}</p>}

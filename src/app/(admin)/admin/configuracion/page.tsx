@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { PageHeader, Notice } from '@/components/ui/misc';
+import { DataRow, PageHeader, Notice } from '@/components/ui/misc';
 import { Table, TableWrapper, Td, Th, Thead, Tr } from '@/components/ui/table';
 import { SettingsForm } from './settings-form';
 import { UserRoleForm } from './user-role-form';
@@ -23,12 +24,50 @@ export default async function ConfiguracionPage() {
 
   const s = settings as SystemSettings | null;
   const list = (users ?? []) as AppUser[];
+  const rfqRecipients = (
+    process.env.RFQ_NOTIFICATION_TO || process.env.NEXT_PUBLIC_CONTACT_EMAIL || siteConfig.email
+  )
+    .split(',')
+    .map((email) => email.trim())
+    .filter(Boolean);
+  const rfqFrom = process.env.RFQ_FROM_EMAIL?.trim();
+  const rfqEmailReady = Boolean(process.env.RESEND_API_KEY?.trim() && rfqFrom && rfqRecipients.length);
 
   return (
     <div>
-      <PageHeader title="Configuración" description="Datos de la empresa, impuestos, numeracion y usuarios." />
+      <PageHeader title="Configuración" description="Datos de la empresa, impuestos, numeración y usuarios." />
 
       <div className="space-y-6">
+        <Card>
+          <CardHeader>
+            <CardTitle>Recepción de nuevas RFQ</CardTitle>
+            <Badge tone={rfqEmailReady ? 'success' : 'warning'}>
+              {rfqEmailReady ? 'Correo activo' : 'Configuración pendiente'}
+            </Badge>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <dl>
+              <DataRow label="Registro principal" value="Supabase · service_requests" />
+              <DataRow
+                label="Panel de seguimiento"
+                value={(
+                  <Link href="/admin/solicitudes" className="text-navy-700 underline decoration-gold-400 underline-offset-4 hover:text-navy-900">
+                    /admin/solicitudes
+                  </Link>
+                )}
+              />
+              <DataRow label="Destinatario" value={rfqRecipients.join(', ')} />
+              <DataRow label="Remitente" value={rfqFrom || 'Pendiente de configurar'} />
+              <DataRow label="Contenido" value="Todos los datos del cliente y enlace directo a la RFQ" />
+            </dl>
+            <Notice tone={rfqEmailReady ? 'info' : 'warning'}>
+              {rfqEmailReady
+                ? 'La alerta por correo está configurada. Realiza una RFQ de prueba después de cada cambio de dominio o proveedor de correo.'
+                : 'La RFQ siempre queda guardada en el panel. Para activar el aviso externo configura RESEND_API_KEY, RFQ_FROM_EMAIL y RFQ_NOTIFICATION_TO en producción.'}
+            </Notice>
+          </CardContent>
+        </Card>
+
         <Card>
           <CardHeader><CardTitle>Datos de la empresa</CardTitle></CardHeader>
           <CardContent>
@@ -58,11 +97,11 @@ export default async function ConfiguracionPage() {
             <Notice tone="info">
               Para usar el archivo oficial de PES, reemplaza los archivos en{' '}
               <code className="rounded bg-navy-100 px-1.5 py-0.5 text-xs">public/brand/</code>{' '}
-              conservando los nombres <code className="rounded bg-navy-100 px-1.5 py-0.5 text-xs">pes-logo.svg</code>,{' '}
-              <code className="rounded bg-navy-100 px-1.5 py-0.5 text-xs">pes-logo-white.svg</code> y{' '}
-              <code className="rounded bg-navy-100 px-1.5 py-0.5 text-xs">pes-isotipo.svg</code>. El
+              conservando los nombres <code className="rounded bg-navy-100 px-1.5 py-0.5 text-xs">pes-logo.png</code>,{' '}
+              <code className="rounded bg-navy-100 px-1.5 py-0.5 text-xs">pes-logo-white.png</code> y{' '}
+              <code className="rounded bg-navy-100 px-1.5 py-0.5 text-xs">pes-isotipo.png</code>. El
               componente <code className="rounded bg-navy-100 px-1.5 py-0.5 text-xs">&lt;Logo /&gt;</code> lo
-              tomara automáticamente en toda la plataforma, sin alterar el diseño ni las proporciones.
+              tomará automáticamente en toda la plataforma, sin alterar el diseño ni las proporciones.
             </Notice>
           </CardContent>
         </Card>

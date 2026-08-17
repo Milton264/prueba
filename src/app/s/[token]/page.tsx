@@ -91,7 +91,7 @@ export default async function GuestRequestPage({ params }: { params: Promise<{ t
                 </>
               ) : (
                 <Notice tone="gold">
-                  Tu solicitud está en proceso de verificación. Nuestro equipo revisara disponibilidad,
+                  Tu solicitud está en proceso de verificación. Nuestro equipo revisará disponibilidad,
                   precio y horario, y te enviaremos la cotización.
                 </Notice>
               )}

@@ -38,13 +38,13 @@ export function SettingsForm({ defaults }: { defaults: SettingsInput }) {
           label="Número de WhatsApp"
           htmlFor="whatsapp_number"
           required
-          hint="Formato internacional, solo digitos. Panamá: 50760000000"
+          hint="Formato internacional, solo dígitos. Panamá: 50760000000"
           error={err('whatsapp_number')}
         >
           <Input id="whatsapp_number" name="whatsapp_number" inputMode="numeric" defaultValue={defaults.whatsapp_number} required />
         </Field>
         <Field label="Sitio web" htmlFor="website_url" hint="Opcional" error={err('website_url')}>
-          <Input id="website_url" name="website_url" type="url" placeholder="https://panamaenergysolutions.com" defaultValue={defaults.website_url ?? ''} />
+          <Input id="website_url" name="website_url" type="url" placeholder="https://www.pes.panamarinesolutions.com" defaultValue={defaults.website_url ?? ''} />
         </Field>
         <Field label="Dirección" htmlFor="address" error={err('address')} className="sm:col-span-2">
           <Input id="address" name="address" defaultValue={defaults.address ?? ''} />
@@ -69,7 +69,7 @@ export function SettingsForm({ defaults }: { defaults: SettingsInput }) {
         </Field>
       </div>
 
-      <Field label="Términos de la cotización" htmlFor="quotation_terms" hint="Texto que acompana cada cotización." error={err('quotation_terms')}>
+      <Field label="Términos de la cotización" htmlFor="quotation_terms" hint="Texto que acompaña cada cotización." error={err('quotation_terms')}>
         <Textarea id="quotation_terms" name="quotation_terms" rows={4} defaultValue={defaults.quotation_terms ?? ''} />
       </Field>
 
