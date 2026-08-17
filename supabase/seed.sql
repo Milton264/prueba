@@ -24,13 +24,13 @@ values (
   'Panama Energy Solutions',
   'Powering Land, Sea & Air',
   'pes@panamarinesolutions.com',
-  '50769954353',
-  'https://panamarinesolutions.com',
-  'Ciudad de Panama, Republica de Panama',
+  '50766794702',
+  'https://www.pes.panamarinesolutions.com',
+  'Industrial Terminal Zone (Zona 1), Ciudad de Panama, Panama',
   0.0000,
   'PES',
   'COT',
-  'Esta cotizacion esta sujeta a la disponibilidad confirmada por la compania operadora aliada al momento de la aprobacion. Los montos indicados no incluyen cargos adicionales derivados de condiciones de acceso no informadas previamente.'
+  'Esta cotizacion esta sujeta a la disponibilidad confirmada por Panama Energy Solutions al momento de la aprobacion. PES presta directamente el servicio y puede contar con el apoyo operativo de companias aliadas cuando sea necesario. Los montos indicados no incluyen cargos adicionales derivados de condiciones de acceso no informadas previamente.'
 )
 on conflict (singleton) do nothing;
 
