@@ -316,7 +316,7 @@ Todas las plantillas están centralizadas en `src/lib/whatsapp.ts`.
 
 ### Alertas por correo de nuevas RFQ
 
-Cada solicitud se registra en `service_requests`, se relaciona con `client_profiles`, genera historial en `request_status_history` y aparece en `/admin/solicitudes`. Además, `src/lib/email/rfq-notification.ts` envía a `RFQ_NOTIFICATION_TO` un correo con todos los datos introducidos por el cliente. Se pueden indicar varios destinatarios separados por comas. El correo usa Resend y el dominio remitente debe estar verificado.
+Cada solicitud se registra en `service_requests`, se relaciona con `client_profiles`, genera historial en `request_status_history` y aparece en `/admin/solicitudes`. Además, `src/lib/email/rfq-notification.ts` envía a `RFQ_NOTIFICATION_TO` un correo con todos los datos introducidos por el cliente. Se pueden indicar varios destinatarios separados por comas. El correo usa Resend y el dominio remitente debe estar verificado. El panel `/admin/configuracion` muestra de forma segura el destino y si las variables necesarias están completas.
 
 ---
 

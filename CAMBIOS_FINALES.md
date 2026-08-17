@@ -18,6 +18,14 @@ Fecha de revisión: 16 de agosto de 2026
 | Eliminar “Sitio” de contacto | Cumplido | La página pública de contacto muestra únicamente teléfono, WhatsApp, correo, ubicación y horario. |
 | Completar íconos de sectores | Cumplido | Todos usan el mismo sistema vectorial, tamaño y acabado; se evitó el recorte de trazos. |
 
+## Verificación posterior al informe de revisión
+
+- La observación que indicaba que no existía notificación por correo corresponde a una versión anterior. Esta entrega sí ejecuta `sendNewRequestEmail()` después de registrar cada RFQ.
+- El administrador puede comprobar el registro, el panel de seguimiento, los destinatarios y el estado de la configuración de correo desde `/admin/configuracion`, sin exponer la API key.
+- El dominio dejó de estar pendiente de definición: el valor solicitado por el cliente está fijado como `https://www.pes.panamarinesolutions.com`.
+- Los íconos de “Sectores que atendemos” son vectores de una sola familia; no dependen de la resolución de imágenes y tienen tamaño, trazo y contenedor uniformes.
+- Se corrigieron textos visibles, signos de interrogación, acentos y la documentación del formato real de los logos (`.png`).
+
 ## Recorrido de una RFQ
 
 1. El cliente completa el formulario público o autenticado.
@@ -61,3 +69,4 @@ Antes de abrir la web al público:
 - Sitemap y robots usan el dominio final.
 - Fotografías principales optimizadas y sin duplicados.
 - Datos públicos de contacto y mensajería revisados.
+- Estado y destinatarios de RFQ visibles en la configuración administrativa.

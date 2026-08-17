@@ -91,7 +91,8 @@ Sin este paso, la confirmación de correo y la recuperación de contraseña fall
 2. Crea una API key y guárdala como `RESEND_API_KEY` en Vercel.
 3. Define `RFQ_FROM_EMAIL` con un remitente del dominio verificado.
 4. Define `RFQ_NOTIFICATION_TO`. Puedes agregar varios correos separados por comas.
-5. Envía una RFQ de prueba y comprueba que aparece en `/admin/solicitudes` y que llega un correo con todos sus campos.
+5. Confirma en `/admin/configuracion` que aparezca **Correo activo** y que el destinatario sea correcto.
+6. Envía una RFQ de prueba y comprueba que aparece en `/admin/solicitudes` y que llega un correo con todos sus campos.
 
 ---
 
