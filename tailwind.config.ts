@@ -8,8 +8,8 @@ import type { Config } from 'tailwindcss';
  *   gold 500 = #C68605   dorado del logotipo
  *   gold 400 = #E0A402   dorado de interfaz
  *
- * Decisiones deliberadas: esquinas practicamente rectas, sin sombras suaves,
- * y una sola familia tipográfica neutra para texto y cifras. La jerarquia la construyen las reglas y el
+ * Decisiones deliberadas: esquinas prácticamente rectas, sin sombras suaves,
+ * Manrope para lectura y Montserrat para jerarquía corporativa. La jerarquía la construyen las reglas y el
  * espaciado, no las tarjetas flotantes.
  */
 const config: Config = {
@@ -61,9 +61,9 @@ const config: Config = {
         panel: '0 16px 48px -12px rgba(0, 23, 60, 0.22)',
       },
       fontFamily: {
-        display: ['var(--font-sans)', 'Inter', 'system-ui', 'sans-serif'],
-        sans: ['var(--font-sans)', 'Inter', 'system-ui', 'sans-serif'],
-        mono: ['var(--font-sans)', 'Inter', 'system-ui', 'sans-serif'],
+        display: ['var(--font-display)', 'Montserrat', 'Arial', 'sans-serif'],
+        sans: ['var(--font-sans)', 'Manrope', 'Arial', 'sans-serif'],
+        mono: ['var(--font-sans)', 'Manrope', 'ui-monospace', 'monospace'],
       },
       letterSpacing: {
         eyebrow: '0.18em',

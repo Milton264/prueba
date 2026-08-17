@@ -17,12 +17,12 @@ navegador o dispositivo, y sin SMTP el correo ni llega). Ahora:
   estuviera sin confirmar, el sistema **la confirma automáticamente** y te deja
   entrar.
 
-Esto requiere que `SUPABASE_SERVICE_ROLE_KEY` esté presente en `.env.local`
-(ya viene incluida). Si falta, verás el aviso en `/diagnostico`.
+Esto requiere que `SUPABASE_SERVICE_ROLE_KEY` esté presente en `.env.local`.
+Si falta, verás el aviso en `/diagnostico` durante el desarrollo.
 
 > Página de diagnóstico: abre **`/diagnostico`** en el navegador para comprobar de
-> un vistazo que las variables y la conexión a Supabase están bien. Bórrala antes
-> de publicar en producción.
+> un vistazo que las variables y la conexión a Supabase están bien. En producción
+> la ruta responde como no encontrada.
 
 ---
 

@@ -2,7 +2,7 @@
 
 Plataforma web responsive para recibir y gestionar solicitudes de suministro de **diésel** y **agua potable** por cisterna en Panamá.
 
-> **PES es un intermediario comercial y coordinador del servicio.** No es propietario de las cisternas. La plataforma cubre el ciclo: solicitud → verificación interna con operadores aliados → cotización → aprobación → coordinación → servicio completado.
+> **PES presta directamente el servicio.** Cuando la demanda o la logística lo requieren, compañías aliadas asisten y apoyan las operaciones de PES. La plataforma cubre el ciclo: solicitud → verificación de disponibilidad → cotización → aprobación → programación → servicio completado.
 
 ---
 
@@ -31,6 +31,7 @@ Plataforma web responsive para recibir y gestionar solicitudes de suministro de 
 - npm 10 o superior
 - Una cuenta gratuita en [Supabase](https://supabase.com)
 - Una cuenta en [Vercel](https://vercel.com) para publicar
+- Una cuenta en [Resend](https://resend.com) para las alertas inmediatas de nuevas RFQ
 
 ---
 
@@ -70,6 +71,7 @@ Ejecuta en el SQL Editor, en este orden:
 | 4 | `supabase/migrations/04_storage.sql` |
 | 5 | `supabase/migrations/05_hardening.sql` |
 | 6 | `supabase/seed.sql` |
+| 7 | `supabase/migrations/06_launch_settings.sql` (solo para actualizar una instalación existente) |
 
 Todos son idempotentes: puedes volver a ejecutarlos sin romper nada.
 
@@ -77,15 +79,19 @@ Todos son idempotentes: puedes volver a ejecutarlos sin romper nada.
 
 ## 4. Variables de entorno
 
-El archivo `.env.local` ya viene con la URL y la llave anónima. **Falta una sola pieza:**
+Completa `.env.local` con las llaves de Supabase y la configuración de correo:
 
 ```env
 SUPABASE_SERVICE_ROLE_KEY=PEGAR_AQUI_LA_SERVICE_ROLE_KEY
+NEXT_PUBLIC_SITE_URL=https://www.pes.panamarinesolutions.com
+RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxxx
+RFQ_FROM_EMAIL=Panama Energy Solutions <notificaciones@panamarinesolutions.com>
+RFQ_NOTIFICATION_TO=pes@panamarinesolutions.com
 ```
 
 Obtenla en **Supabase → Project Settings → API Keys → `service_role` → Reveal**.
 
-Sin ella funciona todo salvo dos cosas: las solicitudes de invitados (que no tienen sesión) y el acceso por enlace `/s/[token]`.
+Sin la llave de servicio no funcionan las solicitudes de invitados ni el acceso por enlace `/s/[token]`. Sin las tres variables de correo, la RFQ sí queda guardada en Supabase y en el panel, pero no sale la alerta por email.
 
 > ⚠️ Esa llave omite todas las políticas de seguridad. Solo se usa en el servidor. Nunca le pongas el prefijo `NEXT_PUBLIC_` ni la subas al repositorio.
 
@@ -168,7 +174,7 @@ npm run build        # build de producción
 
 La interfaz sigue una dirección **industrial técnica**, no un tema genérico de panel. Las decisiones deliberadas:
 
-- **Tipografía IBM Plex Sans + IBM Plex Mono.** La monoespaciada se usa en cifras, folios, etiquetas y botones. Es lo que le da aspecto de herramienta operativa.
+- **Manrope + Montserrat.** Manrope mantiene la interfaz clara y Montserrat aporta jerarquía corporativa y un acabado más premium en titulares.
 - **Esquinas rectas** (2 px). Sin píldoras ni tarjetas flotantes.
 - **Reglas en vez de sombras.** La jerarquía la construyen los bordes y el espaciado. `border-t-2 border-navy-900` abre cada bloque de peso.
 - **Cifras tabulares.** Galones, montos y folios se alinean en columna.
@@ -230,6 +236,7 @@ src/
 │   ├── supabase/       Clientes de navegador, servidor y servicio
 │   ├── actions/        Server Actions por dominio
 │   ├── validations/    Esquemas Zod
+│   ├── email/          Plantilla y envío de alertas completas de RFQ
 │   ├── pricing.ts      Motor de cálculo de cotizaciones
 │   ├── status.ts       Estados y transiciones permitidas
 │   ├── whatsapp.ts     Constructor de enlaces con mensajes prellenados
@@ -237,7 +244,7 @@ src/
 └── middleware.ts       Protección de rutas por rol
 
 supabase/
-├── migrations/         01_schema · 02_functions · 03_rls · 04_storage
+├── migrations/         01_schema · 02_functions · 03_rls · 04_storage · 05_hardening · 06_launch_settings
 └── seed.sql            Datos de demostración
 ```
 
@@ -307,13 +314,17 @@ Botones disponibles en: página principal (fijo y flotante), confirmación de so
 
 Todas las plantillas están centralizadas en `src/lib/whatsapp.ts`.
 
+### Alertas por correo de nuevas RFQ
+
+Cada solicitud se registra en `service_requests`, se relaciona con `client_profiles`, genera historial en `request_status_history` y aparece en `/admin/solicitudes`. Además, `src/lib/email/rfq-notification.ts` envía a `RFQ_NOTIFICATION_TO` un correo con todos los datos introducidos por el cliente. Se pueden indicar varios destinatarios separados por comas. El correo usa Resend y el dominio remitente debe estar verificado.
+
 ---
 
 ## 13. Fuera de alcance en esta versión
 
 Deliberadamente **no** incluidos: GPS, mapas, seguimiento en vivo de cisternas, ubicación en tiempo real, datos del conductor o número de placa, portal para proveedores, aplicación para conductores y pagos en línea.
 
-La coordinación con las compañías operadoras aliadas ocurre fuera de la plataforma; se registra en la sección **Información del operador** de cada solicitud.
+PES presta el servicio directamente. Cuando una compañía aliada asiste una operación, sus datos y costos se registran únicamente en la sección administrativa **Información del operador** y nunca se exponen al cliente.
 
 ---
 
